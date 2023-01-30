@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 
     // Inits
     srand(1);
-    long board[N + 2];
+    int board[N + 2];
     board[0] = 0;
     for (int i = 1; i <= N; i++)
     {
@@ -43,24 +43,29 @@ int main(int argc, char *argv[])
         {
             printf("loop %d: ", loop + 1);
         }
-        for (long i = 1; i <= N; i++)
+        int temp[N];
+        for (int i = 1; i <= N; i++)
         {
-            long neighborCount = 0;
+            int neighborCount = 0;
             neighborCount += board[i - 1];
             neighborCount += board[i + 1];
 
             if (neighborCount == 1)
             {
-                board[i] = 1;
+                temp[i - 1] = 1;
             }
             else
             {
-                board[i] = 0;
+                temp[i - 1] = 0;
             }
 
+        }
+        for (int i = 1; i <= N; i++)
+        {
+            board[i] = temp[i - 1];
             if (isVerbose)
             {
-                printf("%ld", board[i]);
+                printf("%d", board[i]);
                 if (i == N)
                 {
                     printf("\n");
