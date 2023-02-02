@@ -3,9 +3,15 @@ SHELL = /bin/sh
 CC = gcc
 CFLAG = -Wall -g
 
-all:normal
+all: 1dconway random
 
-normal:
+1dconway:
 	${CC} ${CFLAG} 1dconway.c -o 1dconway
+
+random:
+	${CC} ${CFLAG} random.c -o random
+
+clean:
+	rm 1dconway random
 
 # todo optimized
