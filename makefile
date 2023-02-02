@@ -3,9 +3,18 @@ SHELL = /bin/sh
 CC = gcc
 CFLAG = -Wall -g
 
-all:normal
+all: 1dconway sequential bubblesort
 
-normal:
+1dconway:
 	${CC} ${CFLAG} 1dconway.c -o 1dconway
+
+sequential:
+	${CC} ${CFLAG} sequential.c -o sequential
+
+bubblesort:
+	${CC} ${CFLAG} bubblesort.c -o bubblesort
+
+clean:
+	rm 1dconway sequential bubblesort
 
 # todo optimized
